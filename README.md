@@ -39,7 +39,8 @@ The project aims to deploy a WordPress website utilizing AWS services and DevOps
 
 8. **Domain Management**:
    - Register the domain name and set up a DNS record using Route 53.
-
+     
+---
 
 ## Deployment Strategy
 
@@ -62,8 +63,7 @@ The following activities need to be carried out when performing an automated dep
    - Startup / restart / enablement of critical services required for WordPress operations.
 
 
-
-## Script for Auto scaling group launch template
+#### Script for Auto scaling group launch template
 
 ```bash
 #!/bin/bash
