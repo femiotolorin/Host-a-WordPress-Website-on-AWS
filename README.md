@@ -40,25 +40,26 @@ The project aims to deploy a WordPress website utilizing AWS services and DevOps
 8. **Domain Management**:
    - Register the domain name and set up a DNS record using Route 53.
 
-## Deployment Scripts
 
-### Installation of WordPress on EC2 Instance
-The script `install_wordpress.sh` performs the following tasks:
-- Updates software packages on the EC2 instance.
-- Creates an HTML directory and mounts the EFS to it.
-- Installs Apache web server and PHP along with necessary extensions for WordPress.
-- Installs MySQL server and starts the service.
-- Downloads and extracts WordPress files, configures the `wp-config.php` file, and restarts the webserver.
+## Deployment Strategy
 
-**Auto Scaling Group Launch Template Configuration
-The script `launch_template_setup.sh` sets up an EC2 instance for use within an Auto Scaling Group. It performs tasks similar to the WordPress installation script but is designed to be used within an Auto Scaling Group launch template.
+#### Manual Installation of WordPress on EC2 Instance
+The following activities need to be carried out when performing a manual deployment of WordPress on an aws ec2 instance.
+- Update software packages on the EC2 instance.
+- Create an HTML directory and mount the EFS access point to it.
+- Install Apache web server and PHP along with the necessary extensions for WordPress.
+- Installs MySQL server and start the service.
+- Download, extract and unzip WordPress files, change file permissions / ownership, configure the `wp-config.php` file, and restart the webserver.
 
-## Usage
-To deploy the WordPress website on AWS infrastructure, follow these steps:
-1. Set up AWS CLI and configure credentials.
-2. Clone the repository containing deployment scripts.
-3. Run the appropriate deployment script (`install_wordpress.sh` for standalone instance or `launch_template_setup.sh` for Auto Scaling Group instance).
-4. Access the website using the provided domain name or IP address.
+
+#### Automated Installation of WordPress on EC2 Instance / Auto-Scaling Group
+The following activities need to be carried out when performing an automated deployment of WordPress on an auto-scaling group.
+- Develop desired Launch Template with configurations of network, security, cpu resources, startup scripts, etc.
+- Develop script to be utilised as custom user data during instance launch to automate the following basic tasks :
+   - Installation of website dependencies eg. Apache web server, PHP, MySql along with necessary extensions for WordPress.
+   - Mounting of network based storage to local storage of each initialized instance.
+   - Modification of file/folder permissions, ownership and locations of resources needed for WordPress operations.
+   - Startup / restart / enablement of critical services required for WordPress operations.
 
 
 
