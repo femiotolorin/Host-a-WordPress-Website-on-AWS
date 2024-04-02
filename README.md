@@ -64,6 +64,7 @@ To deploy the WordPress website on AWS infrastructure, follow these steps:
 
 ## Script for Auto scaling group launch template
 
+```bash
 #!/bin/bash
 # update the software packages on the ec2 instance
 sudo yum update -y
@@ -112,7 +113,7 @@ mount -a
 **set permissions
 chown apache:apache -R /var/www/html
 **restart the webserver
-
+```
 
 ## Contributors
 - Olorunfemi Otolorin - https://github.com/femiotolorin
