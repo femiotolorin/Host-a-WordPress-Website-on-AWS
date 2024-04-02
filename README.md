@@ -1,4 +1,4 @@
-[Alt text](/Host_a_WordPress_Website_on_AWS_outline.png)
+![Alt text](/Host_a_WordPress_Website_on_AWS_outline.png)
 ---
 
 # WordPress Website Deployment on AWS with DevOps Practices
