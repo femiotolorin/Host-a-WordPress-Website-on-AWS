@@ -50,7 +50,7 @@ The script `install_wordpress.sh` performs the following tasks:
 - Installs MySQL server and starts the service.
 - Downloads and extracts WordPress files, configures the `wp-config.php` file, and restarts the webserver.
 
-### Auto Scaling Group Launch Template Configuration
+**Auto Scaling Group Launch Template Configuration
 The script `launch_template_setup.sh` sets up an EC2 instance for use within an Auto Scaling Group. It performs tasks similar to the WordPress installation script but is designed to be used within an Auto Scaling Group launch template.
 
 ## Usage
@@ -67,11 +67,11 @@ To deploy the WordPress website on AWS infrastructure, follow these steps:
 #!/bin/bash
 # update the software packages on the ec2 instance
 sudo yum update -y
-# install the apache web server, enable it to start on boot, and then start the server immediately
+**install the apache web server, enable it to start on boot, and then start the server immediately
 sudo yum install -y httpd
 sudo systemctl enable httpd
 sudo systemctl start httpd
-# install php 8 along with several necessary extensions for wordpress to run
+**install php 8 along with several necessary extensions for wordpress to run
 sudo dnf install -y \
 php \
 php-cli \
