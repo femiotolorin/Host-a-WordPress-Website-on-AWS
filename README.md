@@ -7,38 +7,38 @@ This project entails the deployment of a WordPress website on Amazon Web Service
 
 ## Project Overview
 
-The project aims to deploy a WordPress website utilizing AWS services and DevOps methodologies. Key components and practices involved in the deployment include:
+The project aims to deploy a WordPress website utilizing AWS services and DevOps methodologies. Key components and activities involved in the deployment include:
 
 1. **AWS Infrastructure Setup**:
-   - Configured a Virtual Private Cloud (VPC) with public and private subnets across multiple availability zones.
-   - Deployed an Internet Gateway to facilitate connectivity between VPC instances and the internet.
-   - Established Security Groups as a network firewall mechanism.
+   - Configure a Virtual Private Cloud (VPC) with public and private subnets across multiple availability zones.
+   - Deploy an Internet Gateway to facilitate connectivity between VPC instances and the internet.
+   - Establish Security Groups as a network firewall mechanism.
 
 2. **High Availability and Fault Tolerance**:
-   - Leveraged multiple availability zones (AZs) for enhanced system reliability and fault tolerance.
+   - Leverage multiple availability zones (AZs) for enhanced system reliability and fault tolerance.
 
 3. **Resource Placement**:
-   - Utilized public subnets for infrastructure components like NAT Gateway and Application Load Balancer (ALB).
-   - Positioned web servers (EC2 instances) within private subnets for enhanced security.
+   - Utilize public subnets for infrastructure components like NAT Gateway and Application Load Balancer (ALB).
+   - Position web servers (EC2 instances) within private subnets for enhanced security.
 
 4. **Networking and Connectivity**:
-   - Enabled instances in private subnets to access the internet via the NAT Gateway.
-   - Implemented EC2 Instance Connect Endpoint for secure connections to assets within both public and private subnets.
+   - Enable instances in private subnets to access the internet via the NAT Gateway.
+   - Implement EC2 Instance Connect Endpoint for secure connections to assets within both public and private subnets.
 
 5. **Auto Scaling and Load Balancing**:
-   - Employed an Application Load Balancer (ALB) and a target group for evenly distributing web traffic to an Auto Scaling Group of EC2 instances across multiple availability zones.
-   - Utilized an Auto Scaling Group to automatically manage EC2 instances, ensuring website availability, scalability, fault tolerance, and elasticity.
+   - Employ an Application Load Balancer (ALB) and a target group for even distribution of web traffic to an Auto Scaling Group of EC2 instances across multiple availability zones.
+   - Utilize an Auto Scaling Group to automatically manage EC2 instances, ensuring website availability, scalability, fault tolerance, and elasticity.
 
 6. **Storage and Database**:
-   - Hosted website files on Elastic File System (EFS) for shared file storage.
-   - Utilized Amazon RDS for hosting the WordPress database.
+   - Host website files on Elastic File System (EFS) for shared file storage.
+   - Utilize Amazon RDS for hosting the WordPress database.
 
 7. **Security and Monitoring**:
-   - Secured application communications using a Certificate Manager.
-   - Configured Simple Notification Service (SNS) to alert about activities within the Auto Scaling Group.
+   - Secure application communications in transit using a Certificate Manager.
+   - Configure Simple Notification Service (SNS) to alert about activities within the Auto Scaling Group.
 
 8. **Domain Management**:
-   - Registered the domain name and set up a DNS record using Route 53.
+   - Register the domain name and set up a DNS record using Route 53.
 
 ## Deployment Scripts
 
