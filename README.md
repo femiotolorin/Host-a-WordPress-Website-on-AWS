@@ -44,7 +44,7 @@ The project aims to deploy a WordPress website utilizing AWS services and DevOps
 
 ## Deployment Strategy
 
-#### Manual Installation of WordPress on EC2 Instance
+#### (A)Manual Installation of WordPress on EC2 Instance
 The following activities need to be carried out when performing a manual deployment of WordPress on an aws ec2 instance.
 - Update software packages on the EC2 instance.
 - Create an HTML directory and mount the EFS access point to it.
@@ -53,7 +53,7 @@ The following activities need to be carried out when performing a manual deploym
 - Download, extract and unzip WordPress files, change file permissions / ownership, configure the `wp-config.php` file, and restart the webserver.
 
 
-#### Automated Installation of WordPress on EC2 Instance / Auto-Scaling Group
+#### (B)Automated Installation of WordPress on EC2 Instance / Auto-Scaling Group
 The following activities need to be carried out when performing an automated deployment of WordPress on an auto-scaling group.
 - Develop desired Launch Template with configurations of network, security, cpu resources, startup scripts, etc.
 - Develop script to be utilised as custom user data during instance launch to automate the following basic tasks :
@@ -97,23 +97,25 @@ php-tokenizer
 **install the mysql version 8 community repository
 sudo wget https://dev.mysql.com/get/mysql80-community-release-el9-1.noarch.rpm
 
-**install the mysql server
+#install the mysql server
 sudo dnf install -y mysql80-community-release-el9-1.noarch.rpm
 sudo rpm --import https://repo.mysql.com/RPM-GPG-KEY-mysql-2023
 sudo dnf repolist enabled | grep "mysql.*-community.*"
 sudo dnf install -y mysql-community-server
 
-**start and enable the mysql server
+#start and enable the mysql server
 sudo systemctl start mysqld
 sudo systemctl enable mysqld
-**environment variable
+#environment variable
 EFS_DNS_NAME=fs-02d3268559aa2a318.efs.us-east-1.amazonaws.com
-**mount the efs to the html directory
+#mount the efs to the html directory
 echo "$EFS_DNS_NAME:/ /var/www/html nfs4 nfsvers=4.1,rsize=1048576,wsize=1048576,hard,timeo=600,retrans=2 0 0" >> /etc/fstab
 mount -a
-**set permissions
+#set permissions
 chown apache:apache -R /var/www/html
-**restart the webserver
+#restart the webserver
+sudo service httpd restart
+
 ```
 
 ## Contributors
